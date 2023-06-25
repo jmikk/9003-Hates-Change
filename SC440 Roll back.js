@@ -7,7 +7,6 @@
 // @match        https://www.nationstates.net/page=*/card=*
 // @match        https://www.nationstates.net/page=deck/nation=*
 // @match        https://www.nationstates.net/region=*
-// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 
