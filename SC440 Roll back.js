@@ -16,18 +16,15 @@
 
     const MAX_RESOLUTION_NUMBER = 440; // Change this to the maximum Security Council Resolution number for which the image should be changed
 
-    const badgeElements = document.querySelectorAll('.badge[title*="Security Council Resolution #"]');
+    const imageElement = document.querySelector('.wabadge .scbadge');
+    const title = imageElement.getAttribute('title');
+    const resolutionNumber = parseInt(title.match(/Security Council Resolution # (\d+)/)[1]);
 
-    badgeElements.forEach((imageElement) => {
-        const title = imageElement.getAttribute('title');
-        const resolutionNumber = parseInt(title.match(/Security Council Resolution # (\d+)/)[1]);
-
-        if (resolutionNumber <= MAX_RESOLUTION_NUMBER) {
-            if (title.includes('Condemned')) {
-                imageElement.setAttribute('src', 'https://i.imgur.com/rCdUOAi.png');
-            } else if (title.includes('Commended')) {
-                imageElement.setAttribute('src', 'https://i.imgur.com/yPHKM5g.png');
-            }
+    if (resolutionNumber <= MAX_RESOLUTION_NUMBER) {
+        if (title.includes('Condemned')) {
+            imageElement.setAttribute('src', 'https://i.imgur.com/rCdUOAi.png');
+        } else if (title.includes('Commended')) {
+            imageElement.setAttribute('src', 'https://i.imgur.com/yPHKM5g.png');
         }
-    });
+    }
 })();
